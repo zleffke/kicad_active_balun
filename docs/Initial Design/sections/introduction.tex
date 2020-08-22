@@ -1,0 +1,65 @@
+\section{Introduction}
+\label{sec:introduction}
+This paper will provide a description of the Active HF Dipole Balun design. 
+Like the base design, the author hopes to take inspiration from the Long Wavelength Array (LWA) radio astronomy project in the form of a Memo Series documenting the development of this project.
+This document is a starting point to capture the main ideas and high level information.
+As the design progresses, this document may be condensed and content moved into other more focused documents.
+
+\subsection{Motivation}
+\label{subsec:intro:motivation}
+For a while now, the author has been interested in developing an active HF Dipole antenna system for HF reception.
+This is in part due to an interest in the Amateur Radio hobby and general interest in ionospheric science and associated instrumentation.
+The HamSCI Personal Space Weather Station (PSWS) project has also served as motivation to pursue this effort.
+This project is also related to an interest of the author in developing HF reception and transmission systems as part of his professional work with the Virginia Tech Hume Center for National Security and Technology.
+This includes HF systems for both ground based observations as well as space based reception/transmission of HF signals (ePOP RRI).
+The author would like to thank the VT Hume Center for use of the RF test equipment used to perform detailed RF measurements of the design presented in this work.
+
+\subsection{Design Inspiration - LWA FEE v1.7}
+\label{subsec:intro:design inspiration}
+Through research into active HF antenna systems and digital receiver systems, the author has come across the LWA Memo Series hosted by Dr. Steve Ellingson of Virginia Tech (VT) \cite{lwa_memo}. 
+This information was initially discovered when looking through the excellent content on the Reeve Observatory website \cite{reeve_observatory}.
+The Long Wavelength Array is a radio astronomy instrument that consists of hundreds of active HF crossed dipole antenna elements and involves UNM, VT, LANL, JPL, NRL, Caltech, Harvard, NRAO, and AFRL.
+At least two such large arrays exist, one in Socorro, NM at the Very Large Array (VLA) site \cite{lwa_vla} and one at the Owens Valley Radio Observatory (OVRO) site in California \cite{lwa_ovro}.
+
+The LWA Memo series contains over two hundred individual documents concerning the design of the entire radio astronomy instrument.  
+This memo series includes everything from the base antenna design (of interest to this work), to the siting requirements for the observatories, to the correlator designs, to the networking requirements, and many other topics.
+Reading through the excellent information on both the Reeve Observatory site and the LWA Memo Series has lead the author to consider the use of the LWA design for the an active HF antenna design for Amateur Radio use and Ionospheric science research.
+
+The fundamental design of the active balun PCB board presented in this work is based directly on the LWA Front End Electronics (FEE) v1.7 board, with notable differences that will be discussed later.
+The author in no way claims credit for the base design as it is directly taken from the LWA documents.
+The author would like to thank the LWA researchers and engineers for publishing such excellent, detailed, and readily accessible information concerning the design of their antenna system.
+
+
+\subsection{Project Goals}
+\label{subsec:intro:project_goals}
+\subsubsection{Open Design}
+\label{subsubsec:intro:project_goals:open_design}
+A primary goal of this project is to provide a low cost solution for experimenters interested in constructing active HF antennas.
+The intent of the author is to make the design easily accessible, reproducible, and generally easy for others to use and create they're own.
+A PCB layout, based on the LWA FEE v1.7 but updated and modified, was done by the author using KiCAD.
+The PCB layout is open hardware, based on the creative commons license, and available on GitHub for others use, modification, etc.
+Prototype PCBs were fabricated by Osh Park, and the author is considering making Osh Park project public once a satisfactory design revision has been completed.
+When made public on the Osh Park page, others can order boards directly by other experimenters rather than having to download the KiCAD designs and creating their own PCB project.
+The Bill of Materials will also be provided and all components are easily obtainable from local hardware stores and online vendors such as Mouser, Digikey, Osh Park, etc.
+
+\subsubsection{Technical}
+There are a number of technical goals for this project that will be discussed in more detail in subsequent sections.
+This section of the document is intended to provide high level insight into the overall project.
+The list below shows the basic design goals.
+
+\begin{enumerate}[noitemsep]
+	\item{Single, linearly polarized, active balun board for an electrically small HF dipole antenna.}
+	\item{Modular design to produce a crossed dipole configuration with a pair of active balun boards.}
+	\item{Threshold frequency of operation: 3.0 to 30.0 MHz.}
+	\item{Objective frequency of operation: 1.5 to 50.0 MHz.}
+	\item{High linearity in order to handle strong in band signals.}
+	\item{Integrated filtering to provide rejection of the AM broadcast band and the FM broadcast band so as not to overdrive the analog RF front end or the backend SDR.}
+	\item{Stable performance across the operating band in potential extreme temperature environments (both hot and cold).}
+	\item{Relatively compact design using readily available components.  The PCB layout uses surface mount components, nominally 0805 in size, allowing board population by hand.  Some components are slightly smaller than this and care must be taken during board population.}
+	\item{Overvoltage (due to potential nearby lightning strikes) and surge protection.}
+	\item{Integrated Bias-T for DC on the coax power supply or via a separate external source.}
+	\item{Readily available component selection from common vendors such as local hardware stores (i.e. Lowe's) and online vendors such as Digikey, Mouser, Mini-Circuits, and Osh Park.}
+	\item{First versions and revisions of the design will include prototyping features in the schematic and PCB layout to allow for experimentation that are not part of the LWA design.}
+\end{enumerate}
+
+
